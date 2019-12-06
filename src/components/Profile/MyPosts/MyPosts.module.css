@@ -1,0 +1,31 @@
+.my_posts {
+    grid-area: post;
+    margin: 0 15%;
+}
+
+.my_posts h2 {
+    text-align: center;
+    color: red;
+    text-decoration: line-through;
+}
+
+.post_area textarea {
+    width: -webkit-fill-available;
+}
+
+.post_area button {
+    text-align: right;
+    float: right;
+    background-color: transparent;
+    border: 1px solid #000;
+    padding: 10px 20px;
+    cursor: pointer;
+}
+
+.reverse__post {
+    display: flex;
+    flex-direction: column-reverse;
+    margin-top: 100px;
+    background-color: #0000000a;
+    padding: 60px;
+}

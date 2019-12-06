@@ -1,0 +1,15 @@
+
+.messages {
+list-style-type: none;
+    grid-area: mess;
+}
+.messages li:nth-child(evt) {
+    text-align: right;
+}
+.messages li:nth-child(odd) {
+    text-align: left;
+}
+.messages li {
+    padding: 10px 0px;
+}
+

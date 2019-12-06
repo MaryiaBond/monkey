@@ -1,0 +1,128 @@
+.foodPos {
+    grid-column: 3/4;
+    grid-row: 3/4;
+}
+
+.gridContainer {
+    display: grid;
+    background-color: rgb(255, 255, 255);
+    margin: 0 auto;
+    width: fit-content;
+    justify-content: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.absolutePos {
+    display: grid;
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    width: 100%;
+    background-color: #71c0c2;
+    height: 100%;
+}
+
+.h1 {
+    color: black;
+    text-align: center;
+}
+
+.close {
+    color: black;
+    float: right;
+    padding: 30px 50px;
+}
+
+.leftArrow {
+    background-image: url('../../../assets/img/arrowLeft.png');
+    grid-row: 1/3;
+    grid-column: 1/2;
+    align-self: center;
+}
+
+.rightArrow {
+    background-image: url('../../../assets/img/arrowRight.png');
+    grid-row: 1/3;
+    grid-column: 3/4;
+    align-self: center;
+}
+
+.downArrow {
+    background-image: url('../../../assets/img/arrowDown.png');
+    grid-column: 2/3;
+}
+
+.straightArrow {
+    background-image: url('../../../assets/img/arrowTop.png');
+}
+
+.arrows div {
+    background-repeat: no-repeat;
+    background-size: contain;
+    width: 100px;
+    height: 100px;
+}
+
+.arrows div:hover {
+    transform: scale(0.8);
+}
+.arrows {
+    display: grid;
+    grid-template-columns: 100px 150px 100px;
+    justify-content: center;
+    justify-items: center;
+    cursor: pointer;
+}
+
+.food {
+    background-image: url('../../../assets/img/food.png');
+    width: 172px;
+    height: 166px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: right;
+}
+
+.hidden {
+    display: none;
+}
+
+.catEat {
+    background-image: url('../../../assets/img/catEat1.gif');
+    width: 100vh;
+    height: 80vh;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: right;
+    margin: 0 auto;
+    margin-top: 50px;
+}
+
+.feed {
+    cursor: pointer;
+    font-size: 32px;
+    position: absolute;
+    right: 0;
+    bottom: 298px;
+    border: 1px solid;
+    padding: 15px;
+    text-align: center;
+    margin-right: 40px;
+    box-shadow: 2px 4px 4px rgba(0, 71, 75, 0.38);
+}
+
+.nextLevel {
+    display: block;
+    position: absolute;
+    margin-top: 20%;
+    border: 1px solid #009688;
+    color: #009688;
+    text-align: center;
+    right: 40%;
+    font-size: 42px;
+    z-index: 10000000;
+    cursor: pointer;
+}

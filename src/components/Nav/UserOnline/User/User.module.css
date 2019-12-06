@@ -1,0 +1,21 @@
+.user__block {
+    width: 60px;
+    text-align: center;
+}
+.user__img {
+    width: 35px;
+    height: 35px;
+    padding: 15px 0;
+    margin: 0 auto;
+}
+.user__img img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+}
+label {
+    font-family: "Open Sans";
+    font-size: 12px;
+    cursor: pointer;
+}

@@ -1,0 +1,23 @@
+.login {
+    display: grid;
+    grid-auto-flow: row;
+    color: red;
+    width: 100%;
+    padding: 60px;
+}
+
+.form {
+    min-width: 250px;
+    display: grid;
+    grid-gap: 15px;
+    margin: 0 auto
+}
+
+.checkbox {
+    display: inline;
+}
+.formHasError {
+    background-color: red;
+    color: white;
+    padding: 15px;
+}

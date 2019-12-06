@@ -1,0 +1,82 @@
+.errorText {
+    color: red
+}
+
+.defaultText {
+    color: #052eff;
+    font-size: 7em;
+    padding: 24px;
+}
+
+.gridContainer>div:last-child {
+    font-size: 24px;
+    justify-self: right;
+}
+
+.gridContainer {
+    display: grid;
+    grid-template-columns: 1fr 4fr 1fr;
+    justify-items: center;
+}
+
+.greenColor {
+    color: green
+}
+
+.redColor {
+    color: red
+}
+
+.gridGlobal>div:last-child form {
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+}
+
+.gridGlobal>div:last-child form input {
+    min-width: 400px;
+    padding: 10px 15px;
+}
+
+.gridGlobal {
+    background-color: black;
+    color: white;
+    padding: 10%;
+}
+
+.gridGlobal label {
+    color: white;
+}
+
+.absolutePos {
+    display: block;
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 100vw;
+    height: 100vh;
+    background: black;
+}
+
+.h1 {
+    color: black;
+    text-align: center;
+}
+
+.normModeClass {
+    background: pink
+}
+
+.coolMode {
+    background: olive
+}
+
+.slateMode {
+    background: cyan;
+}
+
+.close {
+    color: white;
+    float: right;
+    padding: 30px 50px;
+}

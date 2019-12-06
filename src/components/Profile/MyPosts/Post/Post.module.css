@@ -1,0 +1,50 @@
+.post {
+    width: 100%;
+    display: grid;
+    grid-template-areas: 'ava post' 'like like';
+    grid-template-rows: 60px 1fr;
+    grid-auto-columns: 2fr 10fr;
+    border-bottom: 1px solid #0000000f;
+}
+
+.post_text {
+    font-family: "Open Sans";
+    grid-area: post;
+    align-self: center;
+}
+
+.ava {
+    width: 50px;
+    height: 50px;
+    grid-area: ava;
+    align-self: center;
+}
+
+.ava img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+.like:hover {
+    opacity: 1;
+}
+
+.like {
+    grid-area: like;
+    text-align: right;
+    cursor: pointer;
+    opacity: 0.5;
+    font-family: open sans-serif;
+}
+
+.like i {
+    width: 20px;
+    height: 30px;
+    background-image: url("./img/like.svg");
+    position: absolute;
+    background-size: contain;
+    margin-left: 10px;
+    background-repeat: no-repeat;
+}
