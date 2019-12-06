@@ -1,0 +1,9 @@
+
+.dialog {
+    border: 1px solid black;
+    padding: 15px;
+    grid-area: users;
+}
+.dialog.active {
+    color: red;
+}

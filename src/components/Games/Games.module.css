@@ -1,0 +1,27 @@
+.gameBlock {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-content: center;
+    justify-items: center;
+}
+
+.gameBlock>a {
+    width: 100%;
+    color: white;
+    text-decoration: none
+}
+
+.gameBlock>a:first-child div {
+    background-image: url('../../assets/img/gingerSpaceCat.jpg');
+    background-position-y: unset;
+}
+
+.gameBlock>a:last-child div {
+    background-image: url('../../assets/img/hungryCat.jpg');
+}
+
+.gameBlock>a div {
+    height: 311px;
+    background-position: center;
+    background-size: cover;
+}

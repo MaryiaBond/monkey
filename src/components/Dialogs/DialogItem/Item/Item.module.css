@@ -1,0 +1,14 @@
+.dialog__item {
+    display: grid;
+}
+
+.dialog {
+    color: #ffffff;
+    font-family: "Open Sans";
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.dialog.active {
+    color: red;
+}

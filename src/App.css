@@ -1,0 +1,54 @@
+/*@import {hauss} from ;*/
+body {
+    font-family: "Helvetica";
+    font-weight: 100;
+}
+
+.app-wrapper {
+    display: grid;
+    grid-template-areas: 'h h' 'n c';
+    grid-template-rows: 60px 1fr;
+    grid-auto-columns: 2fr 10fr;
+    padding: 0 15%;
+}
+.levelGrid1 {
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    background-image: url('assets/img/backLevel1.png');
+}
+.levelGrid2 {
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(4, 1fr);
+    background-image: url('assets/img/level2.png');
+}
+.levelGrid3 {
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: repeat(5, 1fr);
+    background-image: url('assets/img/level3.png');
+}
+@font-face {
+    font-family: Hauss; /* Имя шрифта */
+    src: url('../src/assets/fonts/als_hauss-black-webfont.ttf') format('truetype'); /* Путь к файлу со шрифтом */
+    src: local('☺');
+    font-weight: 900;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: Hauss; /* Имя шрифта */
+    src: url('../src/assets/fonts/als_hauss-thin-webfont.ttf') format('truetype'); /* Путь к файлу со шрифтом */
+    src: local('☺');
+    font-weight: 100;
+    font-style: normal;
+}
+@font-face {
+    font-family: Hauss; /* Имя шрифта */
+    src: url('../src/assets/fonts/als_hauss-medium-webfont.ttf') format('truetype'); /* Путь к файлу со шрифтом */
+    src: local('☺');
+    font-weight: 500;
+    font-style: normal;
+}
+
+.app-wrapper-content {
+    width: auto;
+    grid-area: c; }
