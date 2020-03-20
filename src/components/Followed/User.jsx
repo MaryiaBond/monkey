@@ -1,16 +1,34 @@
 import React from "react";
-import classes from '../Users/Users.module.css';
+import classes from './Users.module.css';
 import userDefault from '../../assets/img/user.jpg';
 import {NavLink} from "react-router-dom";
+import {userAPI} from '../../api/api';
+import Paginator from "../common/Paginator/Paginator";
 
-let UserFollowed = (props) => {
+let User = (props) => {
+
     return (
+
        <div className={classes.wrapUsr} >
+
                 <div className={classes.leftClmn}>
                     <div className={classes.avaUsr}>
                         <NavLink to={'/profile/' + props.user.id}>
+
                             <img src={props.user.photos.small !== null ? props.user.photos.small : userDefault}/></NavLink>
                     </div>
+                    {props.user.followed
+                        ? <button disabled={props.followingInProgress.some(id => id === props.user.id)} onClick={() => {
+                            props.unfollow(props.user.id);
+
+                        }}>Unfollow</button>
+                        : <button disabled={props.followingInProgress.some(id => id === props.user.id)} onClick={() => {
+                            props.follow(props.user.id);
+
+
+                        }}> Follow</button>
+                    }
+
                 </div>
                 <div className={classes.rightClmn}>
                     <div className={classes.row}>
@@ -29,4 +47,4 @@ let UserFollowed = (props) => {
             </div>
     )
 }
-export default UserFollowed;
+export default User;
