@@ -6,6 +6,36 @@ const SET_USER_PROFILE = 'SET_USER_PROFILE';
 const SET_STATUS = 'SET_STATUS';
 const SET_PHOTO = 'SET_PHOTO';
 const SET_DELETE_POST = 'SET_DELETE_POST';
+
+type PostType = {
+    id: number
+    message: string
+    like: number
+    dislike: number
+}
+type contactsType ={
+    github: string
+    vk:string
+    facebook: string
+    instagram: string
+    twitter: string
+    website: string
+    youtube: string
+    mainLink: string
+}
+type photosType = {
+    small: string | null
+    large: string | null
+}
+type ProfileType ={
+    userId: number
+    lookingForAJob: boolean
+    lookingForAJobDescription: string
+    fullName: string
+    contacts: contactsType
+    photos: photosType
+}
+type InitialStateType = typeof initialState
 let initialState = {
     myPosts: [
         { message: 'Hi, were are you from?', id: 1, like: 15, dislike: 12 },
@@ -16,15 +46,15 @@ let initialState = {
         { message: 'Did you hear about BetaPlanet?', id: 2, like: 21, dislike: 12 },
         { message: 'Did you hear about 09867-spacePlanet?', id: 2, like: 21, dislike: 12 },
         { message: 'Did you hear about gog?', id: 2, like: 21, dislike: 12 },
-    ],
+    ] as Array<PostType>,
     likeCount: {
         count: 0
     },
-    profile: null,
-    status: "Space and Race",
+    profile: null as ProfileType | null,
+    status: "" as string,
     photo: {}
 }
-export const profileReducer = (state = initialState, action) => {
+export const profileReducer = (state = initialState, action: any): InitialStateType => {
     switch (action.type) {
         case ADD_POST:
             {
@@ -65,32 +95,56 @@ export const profileReducer = (state = initialState, action) => {
 
     }
 }
+type addPostActionype = {
+    type: typeof ADD_POST
+    newPost: string
+}
+type setUserProfileType ={
+    type: typeof SET_USER_PROFILE
+    profile: ProfileType
+}
+type setStatusType ={
+    type: typeof SET_STATUS
+    status: string
+}
+type setPhotoType ={
+    type: typeof SET_PHOTO
+    photo: string
+}
+type deletePostType = {
+    type: typeof SET_DELETE_POST
+    id: number
+}
+export const addPostActionCreator = (newPost: string) : addPostActionype => ({ type: ADD_POST, newPost });
+export const setUserProfile = (profile: ProfileType) : setUserProfileType => ({ type: SET_USER_PROFILE, profile });
+export const setStatus = (status: string): setStatusType => ({ type: SET_STATUS, status });
+export const setPhoto = (photo: FormData) => ({ type: SET_PHOTO, photo });
+export const deletePost = (id: number) : deletePostType => ({ type: SET_DELETE_POST, id });
 
-export const addPostActionCreator = (newPost) => ({ type: ADD_POST, newPost });
-export const setUserProfile = (profile) => ({ type: SET_USER_PROFILE, profile });
-export const setStatus = (status) => ({ type: SET_STATUS, status: status });
-export const setPhoto = (photo) => ({ type: SET_PHOTO, photo });
-export const deletePost = (id) => ({ type: SET_DELETE_POST, id });
-
-export const getUserProfile = (userId) =>  async (dispatch) => {
+export const getUserProfile = (userId:number) =>  async (dispatch:any) => {
     let response = await profileAPI.getData(userId)
         dispatch(setUserProfile(response.data));
 };
-export const getStatus = (userId) => async (dispatch) => {
+export const getStatus = (userId:number) => async (dispatch:any) => {
     let response = await profileAPI.getStatus(userId);
         dispatch(setStatus(response.data));
 };
-export const updateStatus = (status) => async (dispatch) => {
+export const updateStatus = (status:string) => async (dispatch:any) => {
     let response = await  profileAPI.updateStatus(status);
         if (response.resultCode == 0) {
             dispatch(setStatus(response.data));
         }
 
 }
-export const getPhoto = (photoFile) => (dispatch) => {
+type getPhotoType = {
+    dispatch: any
+    response: any
+    formData: any
+}
+export const getPhoto = (photoFile:string): (dispatch: any) => any => (dispatch) => {
     let formData = new FormData();
     formData.append("image", photoFile);
-    return profileAPI.uploadPhoto(formData).then(response => {
+    return profileAPI.uploadPhoto(formData).then((response: { resultCode: number; }) => {
         if (response.resultCode == 0) {
             dispatch(setPhoto(formData))
         }

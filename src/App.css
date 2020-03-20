@@ -52,3 +52,11 @@ body {
 .app-wrapper-content {
     width: auto;
     grid-area: c; }
+
+@media screen and (max-width: 768px) {
+    .app-wrapper {
+        display: flex;
+        padding-bottom: 150px;
+    }
+}
+
