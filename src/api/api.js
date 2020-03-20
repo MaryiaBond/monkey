@@ -3,7 +3,7 @@
      withCredentials: true,
      baseURL: 'https://social-network.samuraijs.com/api/1.0',
      headers: {
-         "API-KEY": "12d60958-0eae-47eb-92e3-779df1111073"
+         "API-KEY": "9c319c49-23f8-4c0f-a40f-dda01cc4645f"
      }
  })
  export const userAPI = {

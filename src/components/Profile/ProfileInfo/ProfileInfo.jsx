@@ -23,7 +23,6 @@ const UploadPhotoFormRedux = reduxForm({form: 'uploadPhoto'})(UploadPhotoForm)
 const ProfileInfo = (props) => {
     let uploadThisPhoto = (values) => {
         props.getPhoto(values.photoInput);
-        alert('I`m genius нах*й!' + values.photoInput)
     }
     if (!props.profile)
         return (

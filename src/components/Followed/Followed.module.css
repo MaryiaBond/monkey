@@ -1,0 +1,19 @@
+.followedUsers {
+
+}
+.followedImg img{
+    width: inherit;
+}
+.followedImg {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    overflow: hidden;
+}
+.user__block {
+    display: grid;
+    margin-top: 5%;
+    grid-template-columns: 1fr 2fr 5fr;
+    align-items: center;
+    justify-items: flex-start;
+}

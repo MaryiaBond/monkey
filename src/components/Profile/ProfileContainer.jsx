@@ -11,12 +11,12 @@ import {getAuthUserId, getIsAuth, getProfileInfo, getProfileStatus} from "../../
 class ProfileContainer extends React.Component {
     componentDidMount() {
         let userId = this.props.match.params.userId;
+        // let userId = 1625;
         if (!userId) {
             userId = this.props.authorizedUserId
             if (!userId) {
                 this.props.history.push('/login')
             }
-            // userId = 1625;
         }
         this.props.getUserProfile(userId);
         this.props.getStatus(userId);
