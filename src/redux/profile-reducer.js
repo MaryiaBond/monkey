@@ -1,26 +1,39 @@
 import { profileAPI } from "../api/api";
 
 const ADD_POST = 'ADD-POST';
-const LISTEN_POST = 'LISTEN-POST';
 const SET_USER_PROFILE = 'SET_USER_PROFILE';
 const SET_STATUS = 'SET_STATUS';
 const SET_PHOTO = 'SET_PHOTO';
+const SET_INFO = 'SET_INFO';
 const SET_DELETE_POST = 'SET_DELETE_POST';
 let initialState = {
     myPosts: [
-        { message: 'Hi, were are you from?', id: 1, like: 15, dislike: 12 },
-        { message: 'Did you hear about 1-ARspacePlanet?', id: 2, like: 21, dislike: 12 },
-        { message: 'Did you hear about teenHool?', id: 2, like: 21, dislike: 12 },
-        { message: 'Did you hear about 134-space-dimantion?', id: 2, like: 21, dislike: 12 },
-        { message: 'Did you hear about AlphaPlanet?', id: 2, like: 21, dislike: 12 },
-        { message: 'Did you hear about BetaPlanet?', id: 2, like: 21, dislike: 12 },
-        { message: 'Did you hear about 09867-spacePlanet?', id: 2, like: 21, dislike: 12 },
-        { message: 'Did you hear about gog?', id: 2, like: 21, dislike: 12 },
+        { message: 'My post number 1', id: 1, like: 15, dislike: 12 },
+        { message: 'My post number 2', id: 2, like: 21, dislike: 12 },
+        { message: 'My post number 3', id: 3, like: 21, dislike: 12 },
+        { message: 'My post number 4', id: 4, like: 21, dislike: 12 },
+        { message: 'My post number 5', id: 5, like: 21, dislike: 12 }
     ],
     likeCount: {
         count: 0
     },
-    profile: null,
+    profile: {
+        "aboutMe": null,
+        "contacts": {
+            "facebook": null,
+            "website": null,
+            "vk": null,
+            "twitter": null,
+            "instagram": null,
+            "youtube": null,
+            "github": null,
+            "mainLink": null
+        },
+        "lookingForAJob": false,
+        "lookingForAJobDescription": null,
+        "fullName": "Maryia",
+        "photos": {}
+    },
     status: "Space and Race",
     photo: {}
 }
@@ -54,6 +67,13 @@ export const profileReducer = (state = initialState, action) => {
                     photo: action.photo
                 }
             }
+        case SET_INFO:
+            {
+                return {
+                    ...state,
+                    profile: action.profile
+                }
+            }
         case SET_DELETE_POST:
             {
                 return {
@@ -70,6 +90,7 @@ export const addPostActionCreator = (newPost) => ({ type: ADD_POST, newPost });
 export const setUserProfile = (profile) => ({ type: SET_USER_PROFILE, profile });
 export const setStatus = (status) => ({ type: SET_STATUS, status: status });
 export const setPhoto = (photo) => ({ type: SET_PHOTO, photo });
+export const setInfo = (profile) => ({ type: SET_INFO, profile });
 export const deletePost = (id) => ({ type: SET_DELETE_POST, id });
 
 export const getUserProfile = (userId) =>  async (dispatch) => {
@@ -95,5 +116,12 @@ export const getPhoto = (photoFile) => (dispatch) => {
             dispatch(setPhoto(formData))
         }
     })
+}
+export const getInfo = (profile) => async (dispatch) => {
+      let response = await profileAPI.uploadInfo(profile);
+    if (response.resultCode == 0) {
+        await dispatch(setInfo(profile))
+    }
+
 }
 export default profileReducer;

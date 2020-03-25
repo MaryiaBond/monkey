@@ -1,17 +1,10 @@
 import { freindsAPI } from '../api/api'
 const SET_FREINDS_DATA = 'SET_FREINDS_DATA';
 let initialState = {
-    /* userOnline: [
-         { id: 1, name: 'Alex Ololokin', rating: '15', dateBRTH: '10/02/1984' },
-         { id: 2, name: 'Gena Shishkin', rating: '15', dateBRTH: '10/02/1984' },
-         { id: 3, name: 'Vanya Gock', rating: '15', dateBRTH: '10/02/1984' },
-         { id: 4, name: 'Olesha Gick', rating: '15', dateBRTH: '10/02/1984' }
-     ] */
     userData: [],
-    totalUserCount: 50,
+    totalUserCount: 100,
     isFollowed: null,
     userId: 1
-        // pageNumber: 1
 }
 
 

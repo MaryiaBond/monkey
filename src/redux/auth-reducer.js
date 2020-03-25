@@ -33,7 +33,7 @@ export const getAuthUserData = () => (dispatch) => {
         }
     })
 }
-//acync await`ы заменили then
+
 export const login = (email, password, rememberMe) => async (dispatch) => {
     let response = await authAPI.login(email, password, rememberMe);
         if (response.data.resultCode === 0) {

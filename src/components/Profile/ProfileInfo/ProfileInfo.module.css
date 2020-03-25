@@ -37,3 +37,39 @@
     grid-template-rows: 60px 1fr;
     grid-auto-columns: 2fr 10fr;
 }
+.userName {
+    font-size: 24px;
+}
+.jobInfo {
+    color: red;
+}
+.btnSave {
+    padding: 8px 15px;
+}
+.editBtnBlock {
+    width: 100%;
+    text-align: end;
+}
+.editBlock input{
+    padding: 8px 15px;
+}
+.editBlock {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    justify-items: center;
+}
+.inline {
+    display: inline-flex;
+    align-self: flex-start;
+    align-items: center;
+}
+.formBlock > button{
+    background-color: #000;
+    border: none;
+    color: white;
+    padding: 8px;
+}
+.formBlock {
+    display: grid;
+    grid-gap: 15px;
+}

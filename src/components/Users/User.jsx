@@ -6,7 +6,6 @@ import {userAPI} from '../../api/api';
 import Paginator from "../common/Paginator/Paginator";
 
 let User = (props) => {
-
     return (
 
        <div className={classes.wrapUsr} >

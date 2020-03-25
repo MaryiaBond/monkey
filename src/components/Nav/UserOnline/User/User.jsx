@@ -16,7 +16,7 @@ const User = (props) => {
 
 
     return (
-        //переход по Id не работает на странице профиля ! Загадка (связано с тем что мы изменяем только хвост урла {но это не точно})
+
         <NavLink to={'/profile/' + props.id} onclick={()=> setPage(true)}>
             <div className={classes.user__block}>
             <div className={classes.user__img}><img src={userOnlineIMG}/></div>

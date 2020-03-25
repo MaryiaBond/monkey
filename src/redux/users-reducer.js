@@ -103,20 +103,14 @@ const followUnfollowFlow = async(dispatch, userId, apiMethod, actionCreator) => 
 
 export const follow = (userId) => {
     return async(dispatch) => {
-        followUnfollowFlow(dispatch, userId, userAPI.followUsers.bind(userId), followSuccess)
-            // dispatch(toggleFollowingProgress(true, userId));
-            // let response = await apiMethod(userId);
-            //     if (response.resultCode == 0) {
-            //         dispatch(actionCreator(userId));
-            //     }
-            //     dispatch(toggleFollowingProgress(false, userId));
+        await followUnfollowFlow(dispatch, userId, userAPI.followUsers.bind(userId), followSuccess)
 
     }
 }
 
 export const unfollow = (userId) => {
     return async(dispatch) => {
-        followUnfollowFlow(dispatch, userId, userAPI.unfollowUsers.bind(userId), unfollowSuccess)
+        await followUnfollowFlow(dispatch, userId, userAPI.unfollowUsers.bind(userId), unfollowSuccess)
     }
 }
 

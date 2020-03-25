@@ -1,29 +1,25 @@
-import React from 'react';
+import React, {useState} from 'react';
 import classes from './ProfileInfo.module.css';
 import avatar from '../../../assets/img/avatar2.jpg'
 import Preloader from '../../../assets/common/Preloader/Preloader';
 import ProfileStatus from './ProfileStatus'
-import Field from "redux-form/es/Field";
-import {reduxForm} from "redux-form";
-import {FileInput} from "../../common/FormControls";
+import UploadPhotoFormRedux from "./EditProfileForm/ProfileEditPhoto";
+import EditProfileFormRedux from "./EditProfileForm/ProfileEditForm";
+import {getInfo, setInfo} from "../../../redux/profile-reducer";
 
 
-//можно писать что-то типа const UploadPhotoForm = ({profile, status, updateStatus}) => { *и я обязательно буду так делать в будущем*
 
-const UploadPhotoForm = (props) => {
-    return (
-        <form onSubmit={props.handleSubmit} >
-          <Field name='photoInput' component={FileInput}/>  <br/>
-            <button type="submit">upload</button>
-        </form>
-        )
 
-}
-const UploadPhotoFormRedux = reduxForm({form: 'uploadPhoto'})(UploadPhotoForm)
+
 const ProfileInfo = (props) => {
+    let [editMode, setEditMode] = useState(false)
+
+    let changeProfileInfo = (value) => {
+        props.getInfo(value)
+    }
     let uploadThisPhoto = (values) => {
         props.getPhoto(values.photoInput);
-        alert('I`m genius нах*й!' + values.photoInput)
+        setEditMode(false)
     }
     if (!props.profile)
         return (
@@ -31,21 +27,42 @@ const ProfileInfo = (props) => {
         )
     return (
         <div className={classes.main_block}>
-            <UploadPhotoFormRedux onSubmit={uploadThisPhoto}/>
+            {props.isOwner && !editMode && <UploadPhotoFormRedux onSubmit={uploadThisPhoto}/>}
             <div className={`${classes.active} ${classes.content_status}`}><span>
-                {/*{props.profile.aboutMe !==null ? props.profile.aboutMe : }*/}
                 <ProfileStatus props={props.status} updateStatus={props.updateStatus}/></span></div>
             <div className={classes.avatar}><img
                 src={props.profile.photos.small !== null ? props.profile.photos.small : avatar}/></div>
             <div className={classes.info}>
-                <span>Name: {props.profile.fullName}</span>
-                <span>Planet: 1AR-starRace</span>
-                <span>Mission: {props.profile.lookingForAJobDescription}</span>
-                <span>contacts: {props.profile.contacts.instagram} </span>
-                <span>Web Site: www.&67!@=-`0929_______=-0</span>
+                <div className={classes.editBtnBlock}>
+                    {props.isOwner && !editMode && <button onClick={() => {setEditMode(true)}}>Edit</button>}
+                    {editMode && <EditProfileFormRedux onSubmit={changeProfileInfo} setEditMode={setEditMode} profile={props.profile} /> }
+                </div>
+
+
+                {!editMode &&  <div>
+                    Name: <span className={classes.userName}>{props.profile.fullName}</span> <br/>
+                    Job Desc: <span className={classes.userName}>{props.profile.lookingForAJobDescription}</span>
+                    <div className={classes.jobInfo}>{!props.profile.lookingForAJob && 'Looking for a job'}</div>
+                    <div>
+                        contacts:{Object.keys(props.profile.contacts).map(key => (<Contacts
+                        contactTitle={key} contactValue={props.profile.contacts[key]}/>) )}
+                    </div>
+
+                </div>}
+
+
+
             </div>
         </div>
     );
+}
+
+const Contacts = ({contactTitle, contactValue}) => {
+    return (
+        <div>
+            {contactTitle} : {contactValue}
+        </div>
+    )
 }
 
 export default ProfileInfo;

@@ -5,18 +5,18 @@ let initialState = {
         { id: 1, message: 'Hi, how are you' },
         { id: 2, message: 'I`m fine' },
         { id: 3, message: 'What will you do tomorrow?' },
-        { id: 4, message: 'I don`t know =)))' },
+        { id: 4, message: 'I don`t know yet' },
     ],
     dialogMessageText: [
         { message: '' }
     ],
     dataUser: [
         { id: 1, name: 'Jhon Doe' },
-        { id: 2, name: 'Jhon Fish' },
-        { id: 3, name: 'Jhon Potato' },
-        { id: 4, name: 'Jhon Tomato' },
-        { id: 5, name: 'Jhon Corn' },
-        { id: 6, name: 'Jhon Carrot' },
+        { id: 2, name: 'Jhon Doe2' },
+        { id: 3, name: 'Jhon Doe3' },
+        { id: 4, name: 'Jhon Doe4' },
+        { id: 5, name: 'Jhon Doe5' },
+        { id: 6, name: 'Jhon Doe6' },
     ],
     listenMessage: 'ui'
 }

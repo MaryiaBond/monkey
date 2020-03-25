@@ -9,12 +9,11 @@ const SpaceAnimals = React.memo(props => {
 
         function useInterval(callback, delay) {
             const savedCallback = useRef();
-            // Remember the latest callback.
+            // remember the latest callback.
             useEffect(() => {
                 savedCallback.current = callback;
             }, [callback]);
 
-            // Set up the interval.
             useEffect(() => {
                 function tick() {
                     savedCallback.current();
@@ -29,7 +28,7 @@ const SpaceAnimals = React.memo(props => {
 
         const initName = props.animalShortNames[Math.floor(Math.random() * props.animalShortNames.length)]
         let higher = 1000
-        let [modeText, setModeText] = useState("Норм режим");
+        let [modeText, setModeText] = useState("Normal mode");
         const [point, setPoint] = useState(0);
         let [count, setCount] = useState(8);
         let [errors, setErrors] = useState(0);
@@ -37,26 +36,20 @@ const SpaceAnimals = React.memo(props => {
         let [trueText, setTrueText] = useState(true);
         let [permanentName, setTrueName] = useState('пано');
         if (count == 0 && errors == 0) {
-            setModeText("Режим суперчувачка")
+            setModeText("Superscore")
             setCount(10);
             setClassMode('coolMode')
         }
 
         if (count == 0 && errors > 0) {
-            setModeText("Режим улиточкинса")
+            setModeText("Slowly mode")
             setCount(5);
             setClassMode('slateMode')
             setErrors(errors - 1)
         }
         useInterval(() => {
-            // Your custom logic here
             setCount(count - 1);
         }, higher);
-
-        // useEffect (()=> {
-        //     setInterval (timer ++ , 1000)
-
-        // }, [timer])
 
         let checkThisName = (value) => {
             if (permanentName.includes(value.enteredName) && value.enteredName !== "") {

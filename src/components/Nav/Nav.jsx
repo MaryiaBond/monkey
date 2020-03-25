@@ -24,6 +24,9 @@ const Nav = () => {
             <div>
                 <NavLink to="/users" activeClassName={classes.active}> Users </NavLink>
             </div>
+            <div>
+                <NavLink to="/followed" activeClassName={classes.active}> Followed </NavLink>
+            </div>
             <div className={classes.settings}>
                 <NavLink to="/settings" activeClassName={classes.active}> Settings </NavLink>
             </div>

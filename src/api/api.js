@@ -3,7 +3,7 @@
      withCredentials: true,
      baseURL: 'https://social-network.samuraijs.com/api/1.0',
      headers: {
-         "API-KEY": "12d60958-0eae-47eb-92e3-779df1111073"
+         "API-KEY": "1fb8b8e1-c87b-40a8-ab0f-3a22f8a1772c"
      }
  })
  export const userAPI = {
@@ -39,6 +39,9 @@
                  'Content-Type': 'multipart/form-data'
              }
          })
+     },
+     uploadInfo(profile) {
+         return instance.put('profile', profile)
      }
  }
  export const freindsAPI = {

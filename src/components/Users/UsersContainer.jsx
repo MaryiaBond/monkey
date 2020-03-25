@@ -28,13 +28,6 @@ class UsersComponent extends React.Component {
 
     onPageChanged = (pageNumber) => {
         this.props.getUsersAction(pageNumber, this.props.pageSize);
-        //         // this.props.toggleIsFetching(true);
-        //         // this.props.setCurrentPage(pageNumber);
-        //         // // axios.get('https://social-network.samuraijs.com/api/1.0/users?page=' + pageNumber+ '&count=' + this.props.pageSize, {withCredentials: true})
-        //         // userAPI.getUsers(pageNumber, this.props.pageSize).then(response => {
-        //         //     this.props.toggleIsFetching(false);
-        //         //     this.props.setUser(response.items);
-        //         // })
     }
 setCurrentPage = (currentPage) => {
     this.props.getUsersAction(currentPage);

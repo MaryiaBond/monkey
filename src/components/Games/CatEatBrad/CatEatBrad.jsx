@@ -5,8 +5,6 @@ import {Animated} from "react-animated-css";
 
 
 const CatEatBrad = ({currentSize, ...props}) => {
-
-
         useEffect(() => {
             catFood.current.style = styleGrid;
         })
@@ -76,7 +74,13 @@ const CatEatBrad = ({currentSize, ...props}) => {
             position: [posX - 1, posY]
         }
     }
-
+    const feedCat = () => {
+        if (finish) {
+            props.setCurrentSize(currentSize)
+            setVisible(false)
+            setEndAnimation(true)
+        }
+    }
 
 
         return (
@@ -92,7 +96,7 @@ const CatEatBrad = ({currentSize, ...props}) => {
                 </Animated>
                 <div className={endAnimation && classes.hidden}>
                 <div className={endAnimation && classes.hidden}>
-                    <div onClick={goToFinish} id='turnLeft' className={classes.feed}>Накормить</div>
+                    <div onClick={feedCat} id='turnLeft' className={classes.feed}>Feed Cat</div>
                 </div>
                 <div className={classes.gridContainer + ' ' + levelClass}>
                     <div ref={catFood} className={classes.foodPos}>
@@ -117,5 +121,4 @@ const CatEatBrad = ({currentSize, ...props}) => {
         )
     }
 
-//create one function for all btns: goToFinish. this function get argument left, top, right or down. We describe this arguments
 export default CatEatBrad;
