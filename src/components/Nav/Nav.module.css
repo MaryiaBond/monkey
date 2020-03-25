@@ -21,3 +21,38 @@
 a.active {
     color:red;
 }
+.nav img {
+    display: none;
+}
+@media screen and (max-width: 768px) {
+    .mobileHide {
+        display: none;
+    }
+    nav.nav img {
+        display: block;
+    }
+    .nav span {
+        display: none;
+    }
+   nav.nav {
+        position: fixed;
+        grid-auto-flow: column;
+        bottom: 0;
+        height: 135px;
+        right: 0;
+        width: 100%;
+        background-color: #363756;
+        display: grid;
+        align-content: center;
+        justify-content: space-around;
+        border-radius: 20px 20px 0px 0px;
+    }
+    .profileIcon {
+
+    }
+    .settings {
+        padding-top: 0px;
+    }
+    .nav {
+        padding-top: 0; }
+}

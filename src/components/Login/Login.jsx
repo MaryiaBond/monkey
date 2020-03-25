@@ -1,6 +1,6 @@
 import React from 'react';
 import classes from './Login.module.css';
-import Redirect from "react-router-dom/es/Redirect";
+import {Redirect} from "react-router-dom";
 import {reduxForm} from "redux-form";
 // import Field from "redux-form/es/Field";
 import {createField, Input} from "../common/FormControls";
@@ -15,7 +15,7 @@ const FormLogin = (props) => {
             <Field placeholder={"password"} name={"pass"} type="password" component={Input} validate={[required]}/>
             <div className={classes.checkbox}>
                 <Field name={"rememberMe"} id="remember" type={"checkbox"} component={Input}/>
-                <label htmlFor="#remember">Remeber Me in flash photography & screens</label>
+                <label htmlFor="#remember">Remeber Me</label>
             </div>
             {props.error && <div className={classes.formHasError}>
                 {props.error}
@@ -51,7 +51,7 @@ export default Login;
 {/*        /!*<Field name={"rememberMe"} id="remember" type={"checkbox"} component={Input}/>*!/*/}
 {/*        {createField ("checkbox", "rememberMe", "checkbox", "checkbox", [required] )}*/}
 
-{/*        /!*<label htmlFor="#remember">Remeber Me in flash photography & screens</label>*!/*/}
+{/*        /!*<label htmlFor="#remember">Remember Me</label>*!/*/}
 {/*    </div>*/}
 {/*    { error && <div className={classes.formHasError}>*/}
 {/*        {error}*/}

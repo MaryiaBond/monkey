@@ -3,11 +3,11 @@ import classes from './UserOnline.module.css';
 import User from "./User/User";
 
 const UserOnline = (props) => {
-let dataOnlineUser = props.freindsOnline.filter(u => u.followed).map(online =>
-    <>
-        <User name={online.name} id={online.id}/>
-    </>
-    
+let dataOnlineUser = props.freindsOnline.map(online =>
+    <div  className={classes.mobileHide}>
+         {online.followed ?  <User name={online.name} id={online.id}/> : null}
+    </div>
+
    );
     return (
         <div className={classes.user__block}>
